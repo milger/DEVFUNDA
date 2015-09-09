@@ -4,7 +4,10 @@ __author__ = 'JimenaSanabria'
 class Customer(object):
     """Class to get an instance of customer with following attributes:"""
     
-    def __init__(self, code, first_name, last_name, date_of_birth, addresses = [], phones = [], email = "", membership = "Bronze", status = "ACTIVE"):
+    BRONZE_MEMBERSHIP = "Bronze"
+    ACTIVE_STATUS = "ACTIVE"
+    
+    def __init__(self, code, first_name, last_name, date_of_birth, addresses = [], phones = [], email = "", membership = BRONZE_MEMBERSHIP, status = ACTIVE_STATUS):
         """Constructor for customer class.
 
         Keyword arguments:
@@ -12,8 +15,8 @@ class Customer(object):
         first_name -- the str with first name of customer
         last_name -- the str with last name of customer
         date_of_birth -- the date with date of birth of customer
-        addresses -- the list with adresses of customer (default [])
-        phones -- the list with phones of customer (default [])
+        addresses -- the list of strings with addresses of customer (default [])
+        phones -- the list of integers with phones of customer (default [])
         email -- the str with email account of customer (default "")
         membership -- the str with membership type of customer (default "Bronze")
         status -- the str with status of customer (default "ACTIVE")
@@ -60,16 +63,16 @@ class Customer(object):
         """Set the addresses customer.
 
         Keyword arguments:
-        addresses -- the list with addresses of customer (default [])
+        addresses -- the list of strings with addresses of customer (default [])
 
         """
         self._addresses = addresses
                
     def set_phones(self, phones = []):
-        """Set phone numbesr for customer.
+        """Set phone numbers for customer.
 
         Keyword arguments:
-        phones -- the list with phones of customer (default [])
+        phones -- the list of integers with phones of customer (default [])
 
         """
         self._phones = phones
@@ -78,12 +81,12 @@ class Customer(object):
         """Set email account for customer.
 
         Keyword arguments:
-        phone_2 -- the str with email account (default "")
+        email -- the str with email account (default "")
 
         """
         self._email = email
 
-    def set_membership(self, membership = "Bronze"):
+    def set_membership(self, membership = BRONZE_MEMBERSHIP):
         """Set membership type for customer.
 
         Keyword arguments:
@@ -92,7 +95,7 @@ class Customer(object):
         """
         self._membership = membership
         
-    def set_status(self, status = "ACTIVE"):
+    def set_status(self, status = ACTIVE_STATUS):
         """Set status type for customer.
 
         Keyword arguments:
@@ -127,7 +130,7 @@ class Customer(object):
         return self._date_of_birth
         
     def get_addresses(self):
-        """Get list of addresses of customer.
+        """Get list of strings with addresses of customer.
 
         Return in a list the addresses attribute of customer
 
@@ -137,7 +140,7 @@ class Customer(object):
     def get_phones(self):
         """Get phone numbers of customer.
 
-        Return in a list the phones attribute of customer
+        Return in a list of integers with phones attribute of customer
 
         """
         return self._phones
