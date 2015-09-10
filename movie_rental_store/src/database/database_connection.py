@@ -29,7 +29,7 @@ class DataBase(object):
     def select(self, query):
         '''
         This method executes a query and return the result as Bi-dimensional Array.
-		If not any row is retrieved, it returns an empty array.
+        If not any row is retrieved, it returns an empty array.
         
         Params:
         @query    String with the SQL query to retrieve the data from database 
@@ -50,7 +50,7 @@ class DataBase(object):
         This method executes a query to change the database status.
         It returns an Integer with the number of rows affected by the query execution.
         If not any row is affected, it returns -1 by default.
-		
+        
         Params:
         @query    String that contains the SQL query 
         '''
@@ -70,7 +70,7 @@ class DataBase(object):
         '''
         This method executes a query to insert new data.
         It returns an Integer with the number of rows inserted.
-		If not any row is inserted, it returns -1 by default.
+        If not any row is inserted, it returns -1 by default.
         
         Params:
         @query    String that contains the SQL query 
@@ -81,7 +81,7 @@ class DataBase(object):
         '''
         This method executes a query to update existing data.
         It returns an Integer with the number of rows affected.
-		If not any row is affected, it returns -1 by default.
+        If not any row is affected, it returns -1 by default.
         
         Params:
         @query    The SQL query 
@@ -92,10 +92,9 @@ class DataBase(object):
         '''
         This method executes a query to delete data.
         It returns an Integer with the number of rows deleted.
-		If not any row is deleted, it returns -1 by default.
+        If not any row is deleted, it returns -1 by default.
         
         Params:
         @query    String that contains the SQL query 
         '''
         return self._execute_query(query)
-    
