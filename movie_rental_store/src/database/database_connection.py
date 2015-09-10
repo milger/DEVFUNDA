@@ -29,9 +29,10 @@ class DataBase(object):
     def select(self, query):
         '''
         This method executes a query and return the result as Bi-dimensional Array.
+		If not any row is retrieved, it returns an empty array.
         
         Params:
-        @query    The SQL query to retrieve the data from database 
+        @query    String with the SQL query to retrieve the data from database 
         '''
         try:
             self.connect()
@@ -47,10 +48,11 @@ class DataBase(object):
     def _execute_query(self, query):
         '''
         This method executes a query to change the database status.
-        It returns the number of rows affected by the query execution.
-        
+        It returns an Integer with the number of rows affected by the query execution.
+        If not any row is affected, it returns -1 by default.
+		
         Params:
-        @query    The SQL query 
+        @query    String that contains the SQL query 
         '''
         try:
             self.connect()
@@ -67,17 +69,19 @@ class DataBase(object):
     def insert(self, query):
         '''
         This method executes a query to insert new data.
-        It returns the number of rows inserted by the query execution.
+        It returns an Integer with the number of rows inserted.
+		If not any row is inserted, it returns -1 by default.
         
         Params:
-        @query    The SQL query 
+        @query    String that contains the SQL query 
         '''
         return self._execute_query(query)
     
     def update(self, query):
         '''
         This method executes a query to update existing data.
-        It returns the number of rows affected by the query execution.
+        It returns an Integer with the number of rows affected.
+		If not any row is affected, it returns -1 by default.
         
         Params:
         @query    The SQL query 
@@ -87,10 +91,11 @@ class DataBase(object):
     def delete(self, query):
         '''
         This method executes a query to delete data.
-        It returns the number of rows deleted by the query execution.
+        It returns an Integer with the number of rows deleted.
+		If not any row is deleted, it returns -1 by default.
         
         Params:
-        @query    The SQL query 
+        @query    String that contains the SQL query 
         '''
         return self._execute_query(query)
     
