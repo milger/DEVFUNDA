@@ -1,13 +1,13 @@
 __author__ = 'JimenaSanabria'
 
+from membership_type import MembershipType
+from status import Status
+
 
 class Customer(object):
     """Class to get an instance of customer with following attributes:"""
     
-    BRONZE_MEMBERSHIP = "Bronze"
-    ACTIVE_STATUS = "ACTIVE"
-    
-    def __init__(self, code, first_name, last_name, date_of_birth, addresses = [], phones = [], email = "", membership = BRONZE_MEMBERSHIP, status = ACTIVE_STATUS):
+    def __init__(self, code, first_name, last_name, date_of_birth, addresses = [], phones = [], email = "", membership = MembershipType.BRONZE, status = Status.ACTIVE):
         """Constructor for customer class.
 
         Keyword arguments:
@@ -86,7 +86,7 @@ class Customer(object):
         """
         self._email = email
 
-    def set_membership(self, membership = BRONZE_MEMBERSHIP):
+    def set_membership(self, membership = MembershipType.BRONZE):
         """Set membership type for customer.
 
         Keyword arguments:
@@ -95,7 +95,7 @@ class Customer(object):
         """
         self._membership = membership
         
-    def set_status(self, status = ACTIVE_STATUS):
+    def set_status(self, status = Status.ACTIVE):
         """Set status type for customer.
 
         Keyword arguments:
