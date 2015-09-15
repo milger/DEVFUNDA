@@ -7,7 +7,7 @@ from status import Status
 class Customer(object):
     """Class to get an instance of customer with following attributes:"""
     
-    def __init__(self, code, first_name, last_name, date_of_birth, addresses = [], phones = [], email = "", membership = MembershipType.BRONZE, status = Status.ACTIVE):
+    def __init__(self, code, first_name = "", last_name = "", date_of_birth = "", addresses = [], phones = [], email = "", membership = MembershipType.BRONZE, status = Status.ACTIVE):
         """Constructor for customer class.
 
         Keyword arguments:
