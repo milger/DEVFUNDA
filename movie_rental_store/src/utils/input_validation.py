@@ -5,7 +5,12 @@ import datetime
 """Method to validate input data from console."""
 
 def get_date_input(item_name):
-    """Verify that the input from console is a date."""
+    """Verify that the input from console is a date.
+    
+    Keyword arguments:
+    item_name -- the str with the name of item to be register as date
+
+    """ 
 
     while True:
         try:
@@ -17,7 +22,12 @@ def get_date_input(item_name):
     return item
 
 def get_integer_input(item_name):
-    """Verify that the input from console is an integer."""
+    """Verify that the input from console is an integer.
+    
+    Keyword arguments:
+    item_name -- the str with the name of item to be register as integer
+    
+    """
 
     while True:
         try:
@@ -28,7 +38,13 @@ def get_integer_input(item_name):
     return item
     
 def get_option_input(item_name, options_list):
-    """Verify that the input from console is an option of list."""
+    """Verify that the input from console is an option of list.
+
+    Keyword arguments:
+    item_name -- the str with the name of item to be register as option of list
+    options_list -- the list of str with the the option of item_name
+    
+    """
 
     while True:
         item = raw_input(item_name + ":")
