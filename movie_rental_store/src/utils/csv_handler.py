@@ -10,8 +10,6 @@ def get_date_input(item_name):
     Keyword arguments:
     item_name -- the str with the name of item to be register as date
 
-    Return the date regiter by console
-    
     """ 
 
     while True:
@@ -29,8 +27,6 @@ def get_integer_input(item_name):
     Keyword arguments:
     item_name -- the str with the name of item to be register as integer
     
-    Return the integer number register by console
-    
     """
 
     while True:
@@ -47,8 +43,6 @@ def get_option_input(item_name, options_list):
     Keyword arguments:
     item_name -- the str with the name of item to be register as option of list
     options_list -- the list of str with the the option of item_name
-    
-    Return the option of options_list register by console
     
     """
 

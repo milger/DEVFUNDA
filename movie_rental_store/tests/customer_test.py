@@ -2,7 +2,7 @@ import sys
 sys.path.append('../src')
 
 import unittest
-from modules.customer import Customer
+from modules.entity.customer import Customer
 
 class CustomerTest(unittest.TestCase):
 

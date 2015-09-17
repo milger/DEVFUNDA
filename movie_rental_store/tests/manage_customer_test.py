@@ -2,8 +2,8 @@ import sys
 sys.path.append('../src')
 
 import unittest
-from modules.customer import Customer
-from modules.manage_customer import ManageCustomer
+from modules.entity.customer import Customer
+from modules.handler.manage_customer import ManageCustomer
 
 class ManageCustomerTest(unittest.TestCase):
 
