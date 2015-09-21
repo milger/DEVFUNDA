@@ -10,7 +10,7 @@ class ManageMembership(object):
     """ Class to get an instance to manage operations on membership like: create, update, delete"""
     
     def read_membership_data_from_console(self):
-        """ Method od read data from a csv file"""
+        """ Method to read data from console"""
         code = raw_input("Enter Code: ")
         name = raw_input("Enter Name:")
         discount = raw_input("Enter Discount(%):")
