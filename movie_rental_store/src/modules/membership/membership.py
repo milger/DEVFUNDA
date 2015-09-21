@@ -1,10 +1,9 @@
-__author__= 'GrettaRocha'
+__author__ = 'GrettaRocha'
 
 class Membership(object):
     """ Class to get an instance of membership with attributes:"""
-    
+
     def __init__(self, code, name, discount):
-        
         """ Constructor method for membership class
         Arguments:
         code -- numeric value to identify a membership

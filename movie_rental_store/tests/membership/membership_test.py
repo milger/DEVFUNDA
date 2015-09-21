@@ -11,7 +11,7 @@ class MembershipTest(unittest.TestCase):
         code = 9
         name = "Gold"
         discount = 10
-        self.membership = Membership (code, name, discount)
+        self.membership = Membership(code, name, discount)
         self.test_membership = Membership(5, "Platinum", 5)
         
     def test_create_membership(self):
@@ -37,5 +37,5 @@ class MembershipTest(unittest.TestCase):
         self.assertEqual(other_discount, self.test_membership.get_discount())
         
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()

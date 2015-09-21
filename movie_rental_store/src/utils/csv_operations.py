@@ -1,8 +1,9 @@
 __author__ = 'GrettaRocha'
 
 import csv
+import sys
 
-class Csv():
+class CsvOperations(object):
     """ class that contains functions to write/read  data in CSV file """
 
     @staticmethod 
@@ -18,8 +19,8 @@ class Csv():
             writer = csv.writer(open(file_name, "wb"))
             for row in data:
                 writer.writerow(row)
-        except IOError as e:
-            print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        except IOError as error:
+            print "I/O error({0}): {1}".format(error.errno, error.strerror)
         except:
             print "Unexpected error:", sys.exc_info()[0]
             raise
@@ -30,15 +31,16 @@ class Csv():
         """ Static method to read data from csv file
         
         Argument:
-        filename -- name of CSV file from the data will be read
+        file_name -- name of CSV file from the data will be read
         """
         try:
-            with open(file_name, 'rb') as f:
-                list_data = [row for row in csv.reader(f.read().splitlines())]
+            with open(file_name, 'rb') as index_file:
+                list_data = [row for row in csv.reader(index_file.read().splitlines())]
             return list_data
         
-        except IOError as e:
-            print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        except IOError as error:
+            print "I/O error({0}): {1}".format(error.errno, error.strerror)
         except:
             print "Unexpected error:", sys.exc_info()[0]
             raise
+    

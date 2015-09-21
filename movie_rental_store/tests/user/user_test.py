@@ -19,7 +19,7 @@ class UserTest(unittest.TestCase):
         self.user = User(code, first_name, last_name, user_name, password, role, status)
         self.user_test = User("11111", "Carla", "Illanes", "cillanes", "Carlita", "Employee", "ACTIVE")
     
-    def test_create_user (self):
+    def test_create_user(self):
         """ Test if an instance of user class is created with the required data """
         self.assertIsInstance(self.user_test, User)
         

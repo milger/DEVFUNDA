@@ -22,7 +22,7 @@ class User(object):
         self._user_name = user_name
         self._password = password
         self._role = role
-        self_status = status
+        self._status = status
         
     def set_code(self, code):
         """ Set cod for user 
