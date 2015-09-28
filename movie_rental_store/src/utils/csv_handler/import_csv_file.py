@@ -5,21 +5,6 @@ __author__ = 'JimenaSanabria'
 import os
 import csv
 
-
-def get_file_name(file_path):
-    """Get the file name of a path.
-
-    Keyword arguments:
-    file_path -- the str with the path of file
-
-    Return a string with the name of file
-
-    """
-
-    head, tail = os.path.split(file_path)
-    return tail
-
-
 def get_file_data(reader_file):
     """Get a list of string dictionary for the data of a file
 
@@ -48,10 +33,9 @@ def parse_csv_file(file_path):
     """
 
     complete_data_list = []
-    file_name = get_file_name(file_path)
 
     try:
-        import_file = open(file_name, "rb")
+        import_file = open(file_path, "rb")
 
     except IOError:
         print 'An error occured trying to read the file.'
