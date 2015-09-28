@@ -2,7 +2,7 @@ import sys
 sys.path.append('../../src/modules/user')
 
 import unittest
-from users import User
+from user_app import UserApp
 
 class UserTest(unittest.TestCase):
     
@@ -16,12 +16,12 @@ class UserTest(unittest.TestCase):
         password = "gretita"
         role = "Administrator"
         status = "ACTIVE"
-        self.user = User(code, first_name, last_name, user_name, password, role, status)
-        self.user_test = User("11111", "Carla", "Illanes", "cillanes", "Carlita", "Employee", "ACTIVE")
+        self.user = UserApp(code, first_name, last_name, user_name, password, role, status)
+        self.user_test = UserApp("11111", "Carla", "Illanes", "cillanes", "Carlita", "Employee", "ACTIVE")
     
     def test_create_user(self):
         """ Test if an instance of user class is created with the required data """
-        self.assertIsInstance(self.user_test, User)
+        self.assertIsInstance(self.user_test, UserApp)
         
     def test_update_code_user(self):
         """ Test if the user code is updated """
