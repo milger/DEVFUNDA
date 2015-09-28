@@ -1,5 +1,6 @@
 import sys
-sys.path.append('../src')
+import os
+sys.path.append(os.path.abspath("../../src"))
 
 import unittest
 from modules.entity.customer import Customer
@@ -126,7 +127,7 @@ class CustomerTest(unittest.TestCase):
         update_status = "INACTIVE"
         self.customer.set_status(update_status)
         self.assertEqual(update_status, self.customer.get_status())
+
         
 if __name__ == "__main__":
     unittest.main()
-

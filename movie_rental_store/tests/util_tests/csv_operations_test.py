@@ -1,8 +1,10 @@
 import sys
-sys.path.append('../../src/utils')
+import os
+sys.path.append(os.path.abspath("../../src"))
+
 
 import unittest
-from csv_operations import CsvOperations
+from utils.csv_operations import CsvOperations
 
 
 class CsvTest(unittest.TestCase):
