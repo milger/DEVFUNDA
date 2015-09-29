@@ -1,3 +1,8 @@
+import coverage
+from coverage import coverage
+
+cov = coverage()
+cov.start()
 import os
 import sys
 sys.path.append(os.path.abspath("../src"))
@@ -10,6 +15,7 @@ from util_tests.input_validation_test import InputValidationTest
 from util_tests.csv_operations_test import CsvOperations
 from database_tests.database_test import DatabaseTest
 from csv_tests.import_csv_test import ImportCsvTest
+from customer_tests.import_customer_test import ImportCustomerTest
 
 
 suite = unittest.TestSuite()
@@ -20,5 +26,9 @@ suite.addTest(unittest.makeSuite(InputValidationTest))
 suite.addTest(unittest.makeSuite(CsvOperations))
 suite.addTest(unittest.makeSuite(DatabaseTest))
 suite.addTest(unittest.makeSuite(ImportCsvTest))
+suite.addTest(unittest.makeSuite(ImportCustomerTest))
 
 unittest.TextTestRunner(verbosity = 2).run(suite)
+
+cov.stop()
+cov.html_report(directory='report')
