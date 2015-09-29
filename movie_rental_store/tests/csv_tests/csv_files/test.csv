@@ -1,5 +1,5 @@
-Measure,Scope,Error
-SIM_BASE_PRICE1,VP02/Arlington,"The formula could not be evaluated"
-SIM_BASE_PRICE2,VP04/Arlington,"The formula could not be evaluated"
-SIM_BASE_PRICE3,VP03/Arlington,"The formula could not be evaluated"
-SIM_BASE_PRICE4,VP01/Arlington,"The formula could not be evaluated"
+Measure,Scope,Error,Number
+SIM_BASE_PRICE1,VP02/Arlington,"The formula could not be evaluated",5
+SIM_BASE_PRICE2,VP04/Arlington,"The formula could not be evaluated",1
+SIM_BASE_PRICE3,VP03/Arlington,"The formula could not be evaluated",3
+SIM_BASE_PRICE4,VP01/Arlington,"The formula could not be evaluated",7

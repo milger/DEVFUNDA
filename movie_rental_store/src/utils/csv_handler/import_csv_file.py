@@ -46,3 +46,35 @@ def parse_csv_file(file_path):
         import_file.close()
 
     return complete_data_list
+
+
+def get_string_list_data(data, header):
+    """Get an array with string data.
+
+    Keyword arguments:
+    data -- the dictionary with string data to create object
+    header -- the string with name of header (key)
+
+    Return in an array with string data
+
+    """
+    list_data = []
+    if data.get(header) is not None:
+        list_data = (data.get(header)).split('-')
+    return list_data
+
+
+def get_integer_list_data(data, header):
+    """Get an array with integer data.
+
+    Keyword arguments:
+    data -- the dictionary with string data to create object
+    header -- the string with name of header (key)
+
+    Return in an array with integer data
+
+    """
+    list_data = []
+    if data.get(header) is not None:
+        list_data = [int(number) for number in  (data.get(header)).split('-')]
+    return list_data

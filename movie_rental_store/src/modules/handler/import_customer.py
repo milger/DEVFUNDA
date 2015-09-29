@@ -5,21 +5,22 @@ import sys
 sys.path.append('../../src')
 from random import randint
 from modules.entity.customer import Customer
-from utils.csv_handler.import_csv_file import parse_csv_file
+from utils.csv_handler.import_csv_file import *
+
 
 class ImportCustomer(object):
     """Class to import csv file to handle the customers"""
 
-    def get_data_from_csv(self, file_path):
+    def get_data_from_csv(self, abs_file_path):
         """Get all data from csv file.
 
         Keyword arguments:
-        file_path -- the str with file path from csv file
+        abs_file_path -- the str with file path from csv file
 
         Return in a list with string dictionary with data to create customer objects
 
         """
-        return parse_csv_file(file_path)
+        return parse_csv_file(abs_file_path)
 
 
     def create_customer_object(self, code, data):
@@ -34,28 +35,29 @@ class ImportCustomer(object):
         """
 
         customer = Customer(code)
-        for index in range(len(data.items())):
-            customer.set_first_name(data["First Name"])
-            customer.set_last_name(data["Last Name"])
-            customer.set_date_of_birth(data["Date of birth"])
-            customer.set_addresses(data["Addresses"])
-            customer.set_phones(data["Phone numbers"])
-            customer.set_membership(data["Membership"])
-            customer.set_status(data["Status"])
+        customer.set_first_name(data.get("First Name"))
+        customer.set_last_name(data.get("Last Name"))
+        customer.set_date_of_birth(data.get("Date of birth"))
+        customer.set_email(data.get("Email"))  
+        customer.set_membership(data.get("Membership"))
+        customer.set_status(data.get("Status"))
+        customer.set_addresses(get_string_list_data(data, "Addresses"))
+        customer.set_phones(get_integer_list_data(data, "Phone numbers"))
+
         return customer
 
 
-    def import_customer_csv_file(self, file_path):
+    def import_customer_csv_file(self, abs_file_path):
         """Get all customer object after reading a csv file.
 
         Keyword arguments:
-        file_path -- the str with file path from csv file
+        abs_file_path -- the str with file path from csv file
 
         Return in a list with customer object
 
         """
 
-        complete_data = self.get_data_from_csv(file_path)
+        complete_data = self.get_data_from_csv(abs_file_path)
         customers = []
         for data in complete_data:
             code = 'cust%d' % (randint(0, 100000),)
