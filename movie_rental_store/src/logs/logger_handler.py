@@ -5,59 +5,54 @@ import logging
 import logging.handlers
 
 sys.path.append(os.path.abspath("../"))
-ABS_LOG_PATH = os.path.abspath("../../logs")
+
 from utils.singleton import Singleton
 
 class LoggerHandler():
+
     """Class to Handler the logger (Singleton pattern)."""
     __metaclass__ = Singleton
 
-    def __init__(self):
+    def __init__(self, abs_path_logfile):
         """Constructor to set the configuration of logger with DEBUG level by default"""
 
-        abs_path_logfile = ABS_LOG_PATH + "/movie_rental_store.log"
-
-        logger = logging.getLogger()
-        logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.handlers.TimedRotatingFileHandler(abs_path_logfile, when='D', interval=30)
+        self.logger = logging.getLogger()
+        self.logger.setLevel(logging.DEBUG)
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        handler = logging.handlers.TimedRotatingFileHandler(abs_path_logfile, when='D', interval=1)
         handler.setLevel(logging.DEBUG)
         handler.setFormatter(formatter)
-        logger.addHandler(handler)
+        self.logger.addHandler(handler)
 
 
-    @staticmethod
-    def debug(msg):
+    def debug(self, msg):
         """Method to log debug messages
 
         Keyword arguments:
         msg -- the str with the message to be written in log file"""
 
-        logging.debug(msg)
+        self.logger.debug(msg)
 
-    @staticmethod
-    def info(msg):
+    def info(self, msg):
         """Method to log info messages
 
         Keyword arguments:
         msg -- the str with the message to be written in log file"""
 
-        logging.info(msg)
+        self.logger.info(msg)
 
-    @staticmethod
-    def warning(msg):
+    def warning(self, msg):
         """Method to log warning messages
 
         Keyword arguments:
         msg -- the str with the message to be written in log file"""
 
-        logging.warning(msg)
+        self.logger.warning(msg)
 
-    @staticmethod
-    def error(msg):
+    def error(self, msg):
         """Method to log error messages
 
         Keyword arguments:
         msg -- the str with the message to be written in log file"""
 
-        logging.error(msg)
+        self.logger.error(msg)
