@@ -16,6 +16,7 @@ from util_tests.csv_operations_test import CsvOperations
 from database_tests.database_test import DatabaseTest
 from csv_tests.import_csv_test import ImportCsvTest
 from customer_tests.import_customer_test import ImportCustomerTest
+from log_tests.logger_handler_test import LoggerHandlerTest
 
 
 suite = unittest.TestSuite()
@@ -27,6 +28,7 @@ suite.addTest(unittest.makeSuite(CsvOperations))
 suite.addTest(unittest.makeSuite(DatabaseTest))
 suite.addTest(unittest.makeSuite(ImportCsvTest))
 suite.addTest(unittest.makeSuite(ImportCustomerTest))
+suite.addTest(unittest.makeSuite(LoggerHandlerTest))
 
 unittest.TextTestRunner(verbosity = 2).run(suite)
 
