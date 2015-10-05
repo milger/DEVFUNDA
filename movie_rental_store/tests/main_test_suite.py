@@ -17,7 +17,7 @@ from database_tests.database_test import DatabaseTest
 from csv_tests.import_csv_test import ImportCsvTest
 from customer_tests.import_customer_test import ImportCustomerTest
 from log_tests.logger_handler_test import LoggerHandlerTest
-
+from movie_tests.movie_test import MovieTest
 
 suite = unittest.TestSuite()
 
@@ -29,6 +29,7 @@ suite.addTest(unittest.makeSuite(DatabaseTest))
 suite.addTest(unittest.makeSuite(ImportCsvTest))
 suite.addTest(unittest.makeSuite(ImportCustomerTest))
 suite.addTest(unittest.makeSuite(LoggerHandlerTest))
+suite.addTest(unittest.makeSuite(MovieTest))
 
 unittest.TextTestRunner(verbosity = 2).run(suite)
 

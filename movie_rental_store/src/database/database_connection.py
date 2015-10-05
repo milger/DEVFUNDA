@@ -16,9 +16,11 @@ class DataBase(object):
     
     def connect(self):
         '''
-        This method creates the data_base connection
+        This method creates the data_base connection. Returns the connection object
         '''
         self._connection = sqlite3.connect(self._database_name)
+        self._cursor = self._connection.cursor()
+        return self._connection
     
     def close_connection(self):
         '''
@@ -36,9 +38,8 @@ class DataBase(object):
         '''
         try:
             self.connect()
-            cursor = self._connection.cursor()
-            cursor.execute(query)
-            result_set = cursor.fetchall()
+            self._cursor.execute(query)
+            result_set = self._cursor.fetchall()
         except sqlite3.Error, error:
             print "Database error: %s:" % error.args[0]
         finally:
@@ -56,15 +57,14 @@ class DataBase(object):
         '''
         try:
             self.connect()
-            cursor = self._connection.cursor()
-            cursor.execute(query)
+            self._cursor.execute(query)
             self._connection.commit()
         except sqlite3.Error, error:
             self._connection.rollback()
             print "Database error: %s:" % error.args[0]
         finally:
             self.close_connection()
-        return cursor.rowcount
+        return self._cursor.rowcount
     
     def insert(self, query):
         '''
@@ -76,6 +76,28 @@ class DataBase(object):
         @query    String that contains the SQL query 
         '''
         return self._execute_query(query)
+    
+    def insert_from_collection(self, query_template, data_collection):
+        '''
+        This method executes a query to insert new data from a collection object.
+        It returns the number of rows inserted by the query execution.
+        
+        Params:
+        @query_template    The SQL query that contains all fields to be inserted.
+                           For example: INSERT INTO table_name (?, ?, ?, ?)
+        @data_collection   Collection that contains all data to be used in query_template.
+                           For example: query_template = ('python', 'Prog. language', 2.7, None)
+        '''
+        try:
+            self.connect()
+            self._cursor.execute(query_template, data_collection)
+            self._connection.commit()
+        except sqlite3.Error, error:
+            self._connection.rollback()
+            print "Database error: %s:" % error.args[0]
+        finally:
+            self.close_connection()
+        return self._cursor.rowcount
     
     def update(self, query):
         '''
