@@ -30,21 +30,27 @@ class DatabaseTest(unittest.TestCase):
         affected_rows = self.db_connection.insert(insert_query)
         self.assertEqual(affected_rows, 3)
 
-    def test3_execute_a_select_query(self):
+    def test3_execute_an_insert_query_from_data_collection(self):
+        query_template = "INSERT INTO User VALUES(?, ?)"
+        data_collection = ("Test", 1)
+        affected_rows = self.db_connection.insert_from_collection(query_template, data_collection)
+        self.assertEqual(affected_rows, 1)
+
+    def test4_execute_a_select_query(self):
         select_query = "SELECT * FROM User WHERE role = 1"
-        expected_result = [('Jhon', 1), ('Paul', 1)]
+        expected_result = [('Jhon', 1), ('Paul', 1), ('Test', 1)]
         result_set = self.db_connection.select(select_query)
         self.assertEqual(result_set, expected_result)
 
-    def test4_execute_an_update_query(self):
+    def test5_execute_an_update_query(self):
         update_query = "UPDATE User SET role = 3 WHERE role = 1"
         affected_rows = self.db_connection.update(update_query)
-        self.assertEqual(affected_rows, 2)
+        self.assertEqual(affected_rows, 3)
 
-    def test5_execute_a_delete_query(self):
+    def test6_execute_a_delete_query(self):
         delete_query = "DELETE FROM User"
         affected_rows = self.db_connection.delete(delete_query)
-        self.assertEqual(affected_rows, 3)
+        self.assertEqual(affected_rows, 4)
 
 if __name__ == "__main__":
     unittest.main()
